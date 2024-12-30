@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pickupexpress/screens/category_screen.dart';
 import 'package:pickupexpress/screens/confirmation_screen.dart';
 import 'package:pickupexpress/screens/deliverypersonsignup_screen.dart';
@@ -14,7 +15,8 @@ import 'package:pickupexpress/screens/update_screen.dart';
 import 'package:pickupexpress/screens/usersignup_screen.dart';
 
 
-void main() {
+void main() async {
+  await Hive.initFlutter(); 
   runApp(const MyApp());
 }
 
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-     home: HomeScreen()
+     home: LoginScreen()
     
     );
   }

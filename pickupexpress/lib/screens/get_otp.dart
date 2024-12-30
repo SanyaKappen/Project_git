@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import 'package:pickupexpress/screens/home_screen.dart';
+import 'package:pickupexpress/utils/hive_storage.dart';
 
 class OtpScreen extends StatefulWidget {
   final String phone_no; // Pass the phone number to the screen
@@ -18,30 +19,27 @@ class _OtpScreenState extends State<OtpScreen> {
       List.generate(4, (index) => TextEditingController());
   bool isLoading = false;
 
+  // Function to send OTP to the backend
   Future<void> sendOtp() async {
     setState(() {
       isLoading = true;
     });
+
     try {
       final response = await http.post(
-        Uri.parse('http://192.168.107.45:8000/send_otp'),
+        Uri.parse('http://10.0.2.2:8000/send_otp'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({'phone_no': widget.phone_no}),
-        
       );
-      
-
-    print('Response status: ${response.statusCode}');
-    print('Response body: ${response.body}');
 
       final responseData = jsonDecode(response.body);
       if (response.statusCode == 200) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(responseData['detail'])),
+          SnackBar(content: Text('OTP sent successfully')),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(responseData['detail'])),
+          SnackBar(content: Text(responseData['detail'] ?? 'Failed to send OTP')),
         );
       }
     } catch (error) {
@@ -54,14 +52,14 @@ class _OtpScreenState extends State<OtpScreen> {
       });
     }
   }
-  
 
+  // Function to verify OTP entered by the user
   Future<void> verifyOtp() async {
     setState(() {
       isLoading = true;
     });
-    final otp = _otpControllers.map((c) => c.text).join();
 
+    final otp = _otpControllers.map((c) => c.text).join();
     if (otp.length < 4) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Please enter the complete OTP')),
@@ -74,7 +72,7 @@ class _OtpScreenState extends State<OtpScreen> {
 
     try {
       final response = await http.post(
-        Uri.parse('http://192.168.107.45:8000/verify_otp'),
+        Uri.parse('http://10.0.2.2:8000/verify_otp'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({'phone_no': widget.phone_no, 'otp': otp}),
       );
@@ -82,15 +80,19 @@ class _OtpScreenState extends State<OtpScreen> {
       final responseData = jsonDecode(response.body);
       if (response.statusCode == 200) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(responseData['detail'])),
+          SnackBar(content: Text('OTP Verified successfully')),
         );
+         String userId = responseData['user_id'];  
+         await storeUserId(userId);  // 
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => HomeScreen()), // Navigate to home page
+          MaterialPageRoute(
+            builder: (context) => HomeScreen(),
+          ),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(responseData['detail'])),
+          SnackBar(content: Text(responseData['detail'] ?? 'Invalid OTP')),
         );
       }
     } catch (error) {
@@ -226,4 +228,3 @@ class _OtpScreenState extends State<OtpScreen> {
     );
   }
 }
-

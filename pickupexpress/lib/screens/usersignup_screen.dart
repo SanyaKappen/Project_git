@@ -1,7 +1,56 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:pickupexpress/screens/adminsignup_screen.dart';
+import 'package:pickupexpress/screens/deliverypersonsignup_screen.dart';
+import 'dart:convert';
+import 'package:pickupexpress/screens/home_screen.dart';
+
 
 class UserSignupScreen extends StatelessWidget {
-  const UserSignupScreen({super.key});
+  UserSignupScreen({super.key});
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+
+  Future<bool> signupUser(BuildContext context) async {
+    final String name = _nameController.text;
+    final String phone_no = _phoneController.text;
+
+    // Check if fields are empty
+    if (name.isEmpty || phone_no.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Please fill all fields")),
+      );
+      return false;
+    }
+
+    try {
+      final url = Uri.parse(
+          'http://10.0.2.2:8000/user_signup'); // Replace with your FastAPI endpoint
+      final response = await http.post(
+        url,
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'name': name, 'phone_no': phone_no}),
+      );
+
+      if (response.statusCode == 200) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Signup successful!")),
+        );
+        return true; // Indicate success
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Signup failed: ${response.body}")),
+        );
+        return false; // Indicate failure
+      }
+    } catch (error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("An error occurred: $error")),
+      );
+      return false; // Indicate failure
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +82,13 @@ class UserSignupScreen extends StatelessWidget {
                         color: Colors.white),
                   ),
                 ),
-                const SizedBox(height: 60),            
-                   Padding(
-               padding: EdgeInsets.symmetric(horizontal: 50),
-                  child: const TextField(
-                    style: TextStyle(
-                  color: Colors.white),
-                    decoration: InputDecoration(
+                const SizedBox(height: 60),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 50),
+                  child: TextField(
+                    controller: _nameController,
+                    style: const TextStyle(color: Colors.white),
+                    decoration: const InputDecoration(
                       hintText: "Enter Name",
                       hintStyle: TextStyle(color: Colors.white),
                       border: OutlineInputBorder(
@@ -47,9 +96,32 @@ class UserSignupScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 60),
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 50),
+                  child: TextField(
+                    controller: _phoneController,
+                    style: const TextStyle(color: Colors.white),
+                    decoration: const InputDecoration(
+                      hintText: "Enter Phone Number",
+                      hintStyle: TextStyle(color: Colors.white),
+                      border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white)),
+                    ),
+                    keyboardType: TextInputType.phone,
+                  ),
+                ),
+                const SizedBox(height: 60),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    final bool signupSuccess = await signupUser(context);
+                    // if (signupSuccess) {
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(builder: (context) => HomeScreen()),
+                    //   );
+                    // }
+                  },
                   child: const Text("Get Started"),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.yellow,
@@ -58,6 +130,62 @@ class UserSignupScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+              SizedBox(height: 20),
+              RichText(
+                text: TextSpan(
+                  text: "Are you a Delivery Person? ",
+                  style: const TextStyle(
+                      color: Colors.white),
+                  children: [
+                    TextSpan(
+                      text: "Signup",
+                      style: const TextStyle(
+                        color: Colors.blue,
+                        decoration: TextDecoration.underline,
+                      ), 
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                 DeliverypersonsignupScreen(), // Replace with your signup page widget
+                            ),
+                          );
+                        },
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20),
+              RichText(
+                text: TextSpan(
+                  text: "Are you a Admin? ",
+                  style: const TextStyle(
+                      color: Colors.white), // Style for the regular text
+                  children: [
+                    TextSpan(
+                      text: "Signup",
+                      style: const TextStyle(
+                        color: Colors.blue,
+                        decoration: TextDecoration.underline,
+                      ), 
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                         
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  AdminsignupScreen(), 
+                            ),
+                          );
+                        },
+                    ),
+                  ],
+                ),
+              ),
               ],
             ),
           ),

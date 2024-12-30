@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hive/hive.dart';
 import 'package:pickupexpress/screens/sender_details.dart';
+import 'package:pickupexpress/screens/userorders_screen.dart';
 
 class Category {
   final String name;
@@ -10,7 +12,18 @@ class Category {
   Category({required this.name, required this.iconPath, required this.items});
 }
 
-class CategoryScreen extends StatelessWidget {
+class CategoryScreen extends StatefulWidget {
+
+
+  CategoryScreen({super.key});
+
+  @override
+  State<CategoryScreen> createState() => _CategoryScreenState();
+}
+
+class _CategoryScreenState extends State<CategoryScreen> {
+  int _selectedIndex = 0; 
+  late String userId; 
   final List<Category> categories = [
     Category(
       name: "Automobiles",
@@ -53,7 +66,34 @@ class CategoryScreen extends StatelessWidget {
       items: ["Forms, Catalogs, Papers, Others"],
     ),
   ];
+ @override
+  void initState() {
+    super.initState();
+    _loadUserId(); // Fetch the userId from Hive when the screen is loaded
+  }
 
+  // Method to load the userId from Hive
+  Future<void> _loadUserId() async {
+    var box = await Hive.openBox('userBox');
+    userId = box.get('userId', defaultValue: ''); // Retrieve userId from Hive
+    setState(() {}); // Refresh the screen to reflect the userId
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    // Navigate to different screens based on index
+    if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => UserOrdersScreen(userId: userId), // Pass userId to UserOrdersScreen
+        ),
+      );
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

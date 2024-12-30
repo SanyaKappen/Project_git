@@ -4,8 +4,8 @@ from app.config import database
 
 
 from app.routes.user import user
-from app.models.blog import SignUpUser,DetailsSender,DetailsRecevier,Order,TrackingOrder,ReviewDetails,SignupAdmin,SignupDeliveryPerson,OTPMessage
-from app.routes.user import UserLogin,UserSignup,SenderDetails,ReceiverDetails,Tracking,Reviews,AdminLogin,AdminSignup,DeliveryPersonLogin,DeliveryPersonSignup,Details,PhoneOTP,VerifyOTP,ShippingDetails
+from app.models.blog import Order,TrackingOrder,ReviewDetails,SignupAdmin,SignupDeliveryPerson,OTPMessage,CalculateOrder
+from app.schemas.classes import UserDetail,Tracking,Reviews,DeliveryPersonSignup,PhoneOTP,VerifyOTP,CalculateDetails,Calculate,OrderBase,OrderCreate,OrderResponse
 from app.config import database
 
 from fastapi.middleware.cors import CORSMiddleware
@@ -13,6 +13,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.config.database import engine
 
 app = FastAPI()
+
 
 app.add_middleware(
     CORSMiddleware,

@@ -1,225 +1,208 @@
 import 'package:flutter/material.dart';
-import 'package:pickupexpress/screens/confirmation_screen.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:pickupexpress/screens/confirmation_screen.dart';
 
-class Selectmode extends StatefulWidget {
-  Selectmode({super.key});
+class SelectModeScreen extends StatefulWidget {
+  final String sender_name;
+   final String sender_phone_no;
+  final String pickup_location;
+  final String sender_pincode;
+  final String package_size;
+  final String package_type;
+  final String receiver_name;
+  final String receiver_address;
+  final String receiver_pincode;
+  final String receiver_phoneno;
+
+  const SelectModeScreen({
+    required this.sender_name,
+    required this.sender_phone_no,
+    required this.pickup_location,
+    required this.sender_pincode,
+    required this.package_size,
+    required this.package_type,
+    required this.receiver_name,
+    required this.receiver_address,
+    required this.receiver_pincode,
+    required this.receiver_phoneno,
+    Key? key,
+  }) : super(key: key);
 
   @override
-  State<Selectmode> createState() => _SelectmodeState();
+  State<SelectModeScreen> createState() => _SelectModeScreenState();
 }
 
-class _SelectmodeState extends State<Selectmode> {
-  bool _ecomode=false;
-  bool _expressmode=false;
+class _SelectModeScreenState extends State<SelectModeScreen> {
+  String? selectedMode;
+  Map<String, dynamic>? modeDetails;
+  bool isLoading = false;
 
-  Future<void> _proceedToConfirmation() async {
-    final deliveryMode = _ecomode
-        ? "Eco mode"
-        : _expressmode
-            ? "Express mode"
-            : "None";
+  final modes = [
+    {
+      'name': 'Eco mode',
+      'image': 'assets/eco_mode.png',
+    },
+    {
+      'name': 'Express mode',
+      'image': 'assets/express_mode.png',
+    },
+    {
+      'name': 'Standard',
+      'image': 'assets/standard_delivery.jpg',
+    },
+  ];
+
+  Future<void> fetchModeDetails(String mode) async {
+    setState(() {
+      isLoading = true;
+    });
 
     try {
       final response = await http.post(
-        Uri.parse('http://192.168.107.45:8000/calculate-dates/'), // Backend endpoint
+        Uri.parse('http://10.0.2.2:8000/calculate'),
         headers: {'Content-Type': 'application/json'},
-        body: json.encode({
-          "delivery_mode": deliveryMode,
-          // Add additional details if needed
+        body: jsonEncode({
+          'package_size': widget.package_size,
+          'package_type': widget.package_type,
+          'mode': mode.toLowerCase().replaceAll(" ", "_"),
         }),
       );
 
       if (response.statusCode == 200) {
-        final responseData = json.decode(response.body);
-
-        // Navigate to ConfirmationPage with the response data
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ConfirmationPage(
-              pickupLocation: responseData['pickup_location'],
-              pincode: responseData['pincode'],
-              parcelSize: responseData['parcel_size'],
-              parcelType: responseData['parcel_type'],
-              deliveryMode: deliveryMode,
-            ),
-          ),
-        );
+        final data = jsonDecode(response.body);
+        setState(() {
+            print(modeDetails);
+          modeDetails = data;
+        });
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("Failed to send data. Please try again.")),
-        );
+        throw Exception('Failed to fetch details');
       }
-    } catch (error) {
+    } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Error: $error")),
+        SnackBar(content: Text('Error fetching mode details: $e')),
       );
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF1F1049),
       appBar: AppBar(
         backgroundColor: const Color(0xFF1F1049),
-        title: const Text(
-          "Current Orders",
-          style: TextStyle(color: Colors.white),
-        ),
+        title: const Text('Modes', style: TextStyle(color: Colors.white)),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            // Handle back navigation
-          },
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.pop(context),
         ),
-        iconTheme: const IconThemeData(color: Colors.white),
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start, // Align questions to the left
-            children: [
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            // List of modes with dynamic content
+            Expanded(
+              child: ListView(
+                children: [
+                  for (var mode in modes) ...[
+                    ListTile(
+                      title: Text(
+                        mode['name']!,
+                        style: const TextStyle(color: Colors.white, fontSize: 20),
+                      ),
+                      leading: Image.asset(
+                        mode['image']!,
+                        width: 60,
+                        height: 60,
+                        fit: BoxFit.cover,
+                      ),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
+                        onPressed: () async {
+                          setState(() {
+                            selectedMode = mode['name'];
+                            print(mode['name']);
+                          });
+                          await fetchModeDetails(mode['name']!);
+                        },
+                      ),
+                    ),
+                    if (selectedMode == mode['name'] && modeDetails != null) ...[
+                      const SizedBox(height: 10),
+                      Container(
+                        padding: const EdgeInsets.all(16.0),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Pickup Date: ${modeDetails!['pickup_date']}',
+                              style: const TextStyle(fontSize: 16),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              'Delivery Date: ${modeDetails!['delivery_date']}',
+                              style: const TextStyle(fontSize: 16),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              'Price: ₹${modeDetails!['price'].toStringAsFixed(0)}', 
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                    const SizedBox(height: 20),
+                  ],
+                ],
+              ),
+            ),
+            if (selectedMode != null)
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Row(
-                  children: [
-                     const Icon(
-                      Icons.arrow_forward, // Arrow icon on the left
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                     const SizedBox(width: 8),
-                    const Text(
-                      "Want to deliver eco-friendly?",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 20),
-              // Centered image and checkbox for Eco mode
-              Center(
-                child: Column(
-                  children: [
-                    Image.asset("assets/eco_mode.png"),
-                    const SizedBox(height: 30),
-                    Container(
-                      height: 40,
-                      width: 200,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white, width: 1),
-                        borderRadius: BorderRadius.circular(8),
-                        
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center, // Center checkbox and text
-                        children: [
-                          Checkbox(
-                            value: _ecomode,
-                            onChanged: (bool? value) {
-                              setState(() {
-                                _ecomode = value ?? false;
-                              });
-                            },
-                            checkColor: Colors.white,
-                            activeColor: Colors.transparent,
-                             side: const BorderSide(color: Colors.white, width: 1),
-                          
-                          ),
-                          const Text(
-                            "Eco mode",
-                            style: TextStyle(fontSize: 16, color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 40),
-              // Left-aligned question for Express Mode
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Row(
-                  
-                  children: [
-                    const Icon(
-                      Icons.arrow_forward, // Arrow icon on the left
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                     const SizedBox(width: 8),
-                    const Text(
-                      "Want to deliver fastly?",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 20),
-              // Centered image and checkbox for Express mode
-              Center(
-                child: Column(
-                  children: [
-                    Image.asset("assets/express_mode.png"),
-                    const SizedBox(height: 30),
-                    Container(
-                      height: 40,
-                      width: 200,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white, width: 1),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center, // Center checkbox and text
-                        children: [
-                          Checkbox(
-                            value: _expressmode,
-                            onChanged: (bool? value) {
-                              setState(() {
-                                _expressmode = value ?? false;
-                              });
-                            },
-                            checkColor: Colors.white,
-                            activeColor: Colors.transparent,
-                             side: const BorderSide(color: Colors.white, width: 1),
-                           
-                          ),
-                          const Text(
-                            "Express mode",
-                            style: TextStyle(fontSize: 16, color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 40),
-              // Centered Proceed button
-              Center(
+                padding: const EdgeInsets.only(bottom: 16.0),
                 child: ElevatedButton(
-              
-                    onPressed: _proceedToConfirmation,
-              
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ConfirmationScreen(
+                          sender_name: widget.sender_name,
+                          sender_phone_no: widget.sender_phone_no,
+                          pickup_location: widget.pickup_location,
+                          sender_pincode: widget.sender_pincode,
+                          package_size: widget.package_size,
+                          package_type: widget.package_type,
+                          receiver_name: widget.receiver_name,
+                          receiver_address: widget.receiver_address,
+                          receiver_pincode: widget.receiver_pincode,
+                          receiver_phoneno: widget.receiver_phoneno,
+                        ),
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF1F1049),
+                    backgroundColor: Colors.transparent,
+                    side: const BorderSide(color: Colors.white, width: 1),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                      side: const BorderSide(color: Colors.white, width: 1),
+                      borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: const Text(
-                    "Proceed",
-                    style: TextStyle(color: Colors.white),
-                  ),
+                  child: const Text('Got it', style: TextStyle(color: Colors.white)),
                 ),
               ),
-            ],
-          ),
+          ],
         ),
       ),
     );

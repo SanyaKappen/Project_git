@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class OrderUpdatePage extends StatefulWidget {
   const OrderUpdatePage({Key? key}) : super(key: key);
@@ -11,20 +13,48 @@ class _OrderUpdatePageState extends State<OrderUpdatePage> {
   final TextEditingController _locationController = TextEditingController();
   bool _orderDelivered = false;
 
+ Future<void> _submitOrderUpdate() async {
+    String location = _locationController.text;
+    bool delivered = _orderDelivered;
+
+    final Map<String, dynamic> trackingData = {
+      'status': delivered ? 'Delivered' : 'In Progress',
+      'current_location': location,
+    };
+
+    final response = await http.post(
+      Uri.parse('http://10.0.2.2:8000/track'),  
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode(trackingData),
+    );
+
+    if (response.statusCode == 200) {
+      final responseData = json.decode(response.body);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Order Update Successful: ${responseData['status']}")),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Failed to update order.")),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Color(0xFF1F1049),
-        title: const Text("Current Orders",style: TextStyle(color: Colors.white),),
+        title: const Text(
+          "Current Orders",
+          style: TextStyle(color: Colors.white),
+        ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            // Handle back navigation
-          },
+          onPressed: () => Navigator.pop(context),
         ),
-         iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -53,11 +83,9 @@ class _OrderUpdatePageState extends State<OrderUpdatePage> {
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 200),
                     child: TextField(
-                      
                       controller: _locationController,
                       decoration: const InputDecoration(
                         hintText: "write....",
-                    
                         border: OutlineInputBorder(),
                       ),
                     ),
@@ -79,10 +107,13 @@ class _OrderUpdatePageState extends State<OrderUpdatePage> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFF1F1049),
                   shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),),
-                
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
-                child: const Text("Update",style: TextStyle(color: Colors.white),),
+                child: const Text(
+                  "Update",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ),
             const SizedBox(height: 16),
@@ -110,7 +141,7 @@ class _OrderUpdatePageState extends State<OrderUpdatePage> {
                 ],
               ),
             ),
-             const SizedBox(height: 16), 
+            const SizedBox(height: 16),
             Center(
               child: ElevatedButton(
                 onPressed: () {
@@ -125,11 +156,14 @@ class _OrderUpdatePageState extends State<OrderUpdatePage> {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF1F1049),
-                  shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),)
+                    backgroundColor: Color(0xFF1F1049),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    )),
+                child: const Text(
+                  "Submit",
+                  style: TextStyle(color: Colors.white),
                 ),
-                child: const Text("Submit",style: TextStyle(color: Colors.white),),
               ),
             ),
           ],

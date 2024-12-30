@@ -1,42 +1,13 @@
+from datetime import datetime
+from typing import Optional
 from pydantic import BaseModel
 
-class UserLogin(BaseModel):
-    phone_no: int
-
-
-class UserSignup(BaseModel):
-    name: str
-    phone_no: int
-    
-
-class SenderDetails(BaseModel):
-    pickup_location: str
-    parcel_size: str
-    parcel_type: str
-    pincode: int
-    mode: str
-    ecomode: bool
-
-class ReceiverDetails(BaseModel):
-    receiver_name: str
-    address: str
-    pincode: int
-    phone_no: int
-
-class Details(SenderDetails,ReceiverDetails):
-    pickup_location: str
-    parcel_size: str
-    parcel_type: str
-    pincode: int
-    mode: str
-    ecomode: bool
-    receiver_name: str
-    address: str
-    pincode: int
-    phone_no: int
+class UserDetail(BaseModel):
+    id: int
+    phone_no: str
 
 class Tracking(BaseModel):
-    status: str
+    status: bool
     current_location: str
 
 class Reviews(BaseModel):
@@ -69,7 +40,40 @@ class VerifyOTP(BaseModel):
     phone_no: str
     otp:str
 
-class ShippingDetails(BaseModel):
+class CalculateDetails(BaseModel):
     package_size: str
+    package_type: str 
+    mode:  str
+
+
+
+class Calculate(BaseModel):
+    pickup_date: str
+    delivery_date : str
+    price: float
+
+class OrderBase(CalculateDetails,Calculate):
+    order_id: int
+    sender_name: str
+    sender_phoneno: str
+    pickup_location: str
+    sender_pincode: int
     package_type: str
-    delivery_mode: str
+    package_size: str 
+    receiver_name: str
+    receiver_address: str
+    receiver_pincode: int
+    receiver_phoneno: str
+    mode: str
+    price: int
+    status: Optional[str] = "pending"
+
+class OrderCreate(OrderBase):
+    user_id: int
+
+class OrderResponse(OrderBase):
+    id: int
+    user_id: int
+
+    class Config:
+        from_attributes = True
