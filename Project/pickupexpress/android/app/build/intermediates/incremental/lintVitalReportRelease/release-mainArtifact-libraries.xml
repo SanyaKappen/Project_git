@@ -1,0 +1,425 @@
+<libraries>
+  <library
+      name="__local_aars__:C:\Users\SANYA KAPPEN\Desktop\Project\pickupexpress\android\app\build\intermediates\flutter\release\libs.jar:unspecified@jar"
+      jars="C:\Users\SANYA KAPPEN\Desktop\Project\pickupexpress\android\app\build\intermediates\flutter\release\libs.jar"
+      resolved="__local_aars__:C:\Users\SANYA KAPPEN\Desktop\Project\pickupexpress\android\app\build\intermediates\flutter\release\libs.jar:unspecified"/>
+  <library
+      name="C:\Users\SANYA KAPPEN\Desktop\Project\pickupexpress\android@@:flutter_native_splash::release"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\629e9acc74f9c6fe9cf1bce97ede8e00\transformed\out\jars\classes.jar;C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\629e9acc74f9c6fe9cf1bce97ede8e00\transformed\out\jars\libs\R.jar"
+      resolved="net.jonhanson.flutter_native_splash:flutter_native_splash:unspecified"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\629e9acc74f9c6fe9cf1bce97ede8e00\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="C:\Users\SANYA KAPPEN\Desktop\Project\pickupexpress\android@@:path_provider_android::release"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\82389223bb2d29640fe2e343519163bb\transformed\out\jars\classes.jar;C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\82389223bb2d29640fe2e343519163bb\transformed\out\jars\libs\R.jar"
+      resolved="io.flutter.plugins.pathprovider:path_provider_android:unspecified"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\82389223bb2d29640fe2e343519163bb\transformed\out"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="io.flutter:flutter_embedding_release:1.0.0-a18df97ca57a249df5d8d68cd0820600223ce262@jar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\modules-2\files-2.1\io.flutter\flutter_embedding_release\1.0.0-a18df97ca57a249df5d8d68cd0820600223ce262\73e796dcc72053d1d78a3515b9474d76b17795c\flutter_embedding_release-1.0.0-a18df97ca57a249df5d8d68cd0820600223ce262.jar"
+      resolved="io.flutter:flutter_embedding_release:1.0.0-a18df97ca57a249df5d8d68cd0820600223ce262"/>
+  <library
+      name="androidx.fragment:fragment:1.7.1@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\33fbed14547325d2c8a7fae558ae8ada\transformed\fragment-1.7.1\jars\classes.jar"
+      resolved="androidx.fragment:fragment:1.7.1"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\33fbed14547325d2c8a7fae558ae8ada\transformed\fragment-1.7.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.activity:activity:1.8.1@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\66b0b9a96cae90bacf07e4dbb182285e\transformed\jetified-activity-1.8.1\jars\classes.jar"
+      resolved="androidx.activity:activity:1.8.1"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\66b0b9a96cae90bacf07e4dbb182285e\transformed\jetified-activity-1.8.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.loader:loader:1.0.0@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\45bb014c3de830ee768c5956db7f0e07\transformed\loader-1.0.0\jars\classes.jar"
+      resolved="androidx.loader:loader:1.0.0"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\45bb014c3de830ee768c5956db7f0e07\transformed\loader-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\7af7d7793bfd871a809eb6d9bcd45f22\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\jars\classes.jar"
+      resolved="androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\7af7d7793bfd871a809eb6d9bcd45f22\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-livedata:2.7.0@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\d6128166263933839ec49be2773f24cd\transformed\lifecycle-livedata-2.7.0\jars\classes.jar"
+      resolved="androidx.lifecycle:lifecycle-livedata:2.7.0"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\d6128166263933839ec49be2773f24cd\transformed\lifecycle-livedata-2.7.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\ea3efb8a383c4fa2762be0fd865f5ba3\transformed\lifecycle-viewmodel-2.7.0\jars\classes.jar"
+      resolved="androidx.lifecycle:lifecycle-viewmodel:2.7.0"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\ea3efb8a383c4fa2762be0fd865f5ba3\transformed\lifecycle-viewmodel-2.7.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-livedata-core:2.7.0@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\e15a53c7367eedef42c6e4fe454008b9\transformed\lifecycle-livedata-core-2.7.0\jars\classes.jar"
+      resolved="androidx.lifecycle:lifecycle-livedata-core:2.7.0"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\e15a53c7367eedef42c6e4fe454008b9\transformed\lifecycle-livedata-core-2.7.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\8b0cae34b32ded6fb55947867b295193\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\jars\classes.jar"
+      resolved="androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\8b0cae34b32ded6fb55947867b295193\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.core:core-ktx:1.13.1@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\92e38d4c4bbb2cf5f1eaee98e2446c50\transformed\jetified-core-ktx-1.13.1\jars\classes.jar"
+      resolved="androidx.core:core-ktx:1.13.1"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\92e38d4c4bbb2cf5f1eaee98e2446c50\transformed\jetified-core-ktx-1.13.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.viewpager:viewpager:1.0.0@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\880619bc1bf83ac69a95b03e7a939569\transformed\viewpager-1.0.0\jars\classes.jar"
+      resolved="androidx.viewpager:viewpager:1.0.0"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\880619bc1bf83ac69a95b03e7a939569\transformed\viewpager-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.customview:customview:1.0.0@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\19fb3a17c1700f354f029d7386066c43\transformed\customview-1.0.0\jars\classes.jar"
+      resolved="androidx.customview:customview:1.0.0"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\19fb3a17c1700f354f029d7386066c43\transformed\customview-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.core:core:1.13.1@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\94ea1a5e681845ac0e6a23f1649d3578\transformed\core-1.13.1\jars\classes.jar"
+      resolved="androidx.core:core:1.13.1"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\94ea1a5e681845ac0e6a23f1649d3578\transformed\core-1.13.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-runtime:2.7.0@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\c16f86be6377701e948e2f3f571e26d1\transformed\lifecycle-runtime-2.7.0\jars\classes.jar"
+      resolved="androidx.lifecycle:lifecycle-runtime:2.7.0"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\c16f86be6377701e948e2f3f571e26d1\transformed\lifecycle-runtime-2.7.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-process:2.7.0@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\4b755088332669f6e5eaba0a494ee773\transformed\jetified-lifecycle-process-2.7.0\jars\classes.jar"
+      resolved="androidx.lifecycle:lifecycle-process:2.7.0"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\4b755088332669f6e5eaba0a494ee773\transformed\jetified-lifecycle-process-2.7.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.lifecycle:lifecycle-common-java8:2.7.0@jar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\modules-2\files-2.1\androidx.lifecycle\lifecycle-common-java8\2.7.0\2ad14aed781c4a73ed4dbb421966d408a0a06686\lifecycle-common-java8-2.7.0.jar"
+      resolved="androidx.lifecycle:lifecycle-common-java8:2.7.0"/>
+  <library
+      name="androidx.lifecycle:lifecycle-common:2.7.0@jar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\modules-2\files-2.1\androidx.lifecycle\lifecycle-common\2.7.0\85334205d65cca70ed0109c3acbd29e22a2d9cb1\lifecycle-common-2.7.0.jar"
+      resolved="androidx.lifecycle:lifecycle-common:2.7.0"/>
+  <library
+      name="androidx.window:window:1.2.0@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\94aa6c79439ada77875c4e4aa072616c\transformed\jetified-window-1.2.0\jars\classes.jar"
+      resolved="androidx.window:window:1.2.0"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\94aa6c79439ada77875c4e4aa072616c\transformed\jetified-window-1.2.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.window:window-java:1.2.0@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\76d9340f24d7fcc675f6caab274b5fa0\transformed\jetified-window-java-1.2.0\jars\classes.jar"
+      resolved="androidx.window:window-java:1.2.0"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\76d9340f24d7fcc675f6caab274b5fa0\transformed\jetified-window-java-1.2.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.annotation:annotation-experimental:1.4.0@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\f086bf736431adfa9d88daf082e3397f\transformed\jetified-annotation-experimental-1.4.0\jars\classes.jar"
+      resolved="androidx.annotation:annotation-experimental:1.4.0"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\f086bf736431adfa9d88daf082e3397f\transformed\jetified-annotation-experimental-1.4.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.savedstate:savedstate:1.2.1@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\8b2812f3943f1e2e555b679c6c669e11\transformed\jetified-savedstate-1.2.1\jars\classes.jar"
+      resolved="androidx.savedstate:savedstate:1.2.1"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\8b2812f3943f1e2e555b679c6c669e11\transformed\jetified-savedstate-1.2.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.arch.core:core-runtime:2.2.0@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\95ba296fb7b576efbfea90a0d207755b\transformed\core-runtime-2.2.0\jars\classes.jar"
+      resolved="androidx.arch.core:core-runtime:2.2.0"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\95ba296fb7b576efbfea90a0d207755b\transformed\core-runtime-2.2.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.arch.core:core-common:2.2.0@jar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\modules-2\files-2.1\androidx.arch.core\core-common\2.2.0\5e1b8b81dfd5f52c56a8d53b18ca759c19a301f3\core-common-2.2.0.jar"
+      resolved="androidx.arch.core:core-common:2.2.0"/>
+  <library
+      name="androidx.versionedparcelable:versionedparcelable:1.1.1@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\ac93f51ab673c91dc5b12818a4aaff58\transformed\versionedparcelable-1.1.1\jars\classes.jar"
+      resolved="androidx.versionedparcelable:versionedparcelable:1.1.1"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\ac93f51ab673c91dc5b12818a4aaff58\transformed\versionedparcelable-1.1.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.collection:collection:1.1.0@jar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\modules-2\files-2.1\androidx.collection\collection\1.1.0\1f27220b47669781457de0d600849a5de0e89909\collection-1.1.0.jar"
+      resolved="androidx.collection:collection:1.1.0"/>
+  <library
+      name="androidx.annotation:annotation-jvm:1.9.1@jar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\modules-2\files-2.1\androidx.annotation\annotation-jvm\1.9.1\b17951747e38bf3986a24431b9ba0d039958aa5f\annotation-jvm-1.9.1.jar"
+      resolved="androidx.annotation:annotation-jvm:1.9.1"/>
+  <library
+      name="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1@jar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlinx\kotlinx-coroutines-android\1.7.1\c2d86b569f10b7fc7e28d3f50c0eed97897d77a7\kotlinx-coroutines-android-1.7.1.jar"
+      resolved="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1"/>
+  <library
+      name="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlinx\kotlinx-coroutines-core-jvm\1.7.1\63a0779cf668e2a47d13fda7c3b0c4f8dc7762f4\kotlinx-coroutines-core-jvm-1.7.1.jar"
+      resolved="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1"/>
+  <library
+      name="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20@jar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk8\1.8.20\73576ddf378c5b4f1f6b449fe6b119b8183fc078\kotlin-stdlib-jdk8-1.8.20.jar"
+      resolved="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20"/>
+  <library
+      name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20@jar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk7\1.8.20\3aa51faf20aae8b31e1a4bc54f8370673d7b7df4\kotlin-stdlib-jdk7-1.8.20.jar"
+      resolved="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20"/>
+  <library
+      name="org.jetbrains.kotlin:kotlin-stdlib:2.1.0@jar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\2.1.0\85f8b81009cda5890e54ba67d64b5e599c645020\kotlin-stdlib-2.1.0.jar"
+      resolved="org.jetbrains.kotlin:kotlin-stdlib:2.1.0"/>
+  <library
+      name="io.flutter:armeabi_v7a_release:1.0.0-a18df97ca57a249df5d8d68cd0820600223ce262@jar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\modules-2\files-2.1\io.flutter\armeabi_v7a_release\1.0.0-a18df97ca57a249df5d8d68cd0820600223ce262\bbd9a7ebd348cb2894ee724b000124de1081b410\armeabi_v7a_release-1.0.0-a18df97ca57a249df5d8d68cd0820600223ce262.jar"
+      resolved="io.flutter:armeabi_v7a_release:1.0.0-a18df97ca57a249df5d8d68cd0820600223ce262"/>
+  <library
+      name="io.flutter:arm64_v8a_release:1.0.0-a18df97ca57a249df5d8d68cd0820600223ce262@jar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\modules-2\files-2.1\io.flutter\arm64_v8a_release\1.0.0-a18df97ca57a249df5d8d68cd0820600223ce262\8c929b4a6a7d5c0c95c3b83de32118e636263386\arm64_v8a_release-1.0.0-a18df97ca57a249df5d8d68cd0820600223ce262.jar"
+      resolved="io.flutter:arm64_v8a_release:1.0.0-a18df97ca57a249df5d8d68cd0820600223ce262"/>
+  <library
+      name="io.flutter:x86_64_release:1.0.0-a18df97ca57a249df5d8d68cd0820600223ce262@jar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\modules-2\files-2.1\io.flutter\x86_64_release\1.0.0-a18df97ca57a249df5d8d68cd0820600223ce262\aa3f9d8baa7bbc9dbf7f12e756ea325333f3506c\x86_64_release-1.0.0-a18df97ca57a249df5d8d68cd0820600223ce262.jar"
+      resolved="io.flutter:x86_64_release:1.0.0-a18df97ca57a249df5d8d68cd0820600223ce262"/>
+  <library
+      name="org.jetbrains:annotations:23.0.0@jar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations\23.0.0\8cc20c07506ec18e0834947b84a864bfc094484e\annotations-23.0.0.jar"
+      resolved="org.jetbrains:annotations:23.0.0"/>
+  <library
+      name="androidx.startup:startup-runtime:1.1.1@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\3f29a49fd3173e8abf491e2179a864e4\transformed\jetified-startup-runtime-1.1.1\jars\classes.jar"
+      resolved="androidx.startup:startup-runtime:1.1.1"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\3f29a49fd3173e8abf491e2179a864e4\transformed\jetified-startup-runtime-1.1.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.tracing:tracing:1.2.0@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\03bf39b84164abc69ab97f8ac32f4480\transformed\jetified-tracing-1.2.0\jars\classes.jar"
+      resolved="androidx.tracing:tracing:1.2.0"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\03bf39b84164abc69ab97f8ac32f4480\transformed\jetified-tracing-1.2.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.profileinstaller:profileinstaller:1.3.1@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\4c271f879071e0b55153117d0a80d4bd\transformed\jetified-profileinstaller-1.3.1\jars\classes.jar"
+      resolved="androidx.profileinstaller:profileinstaller:1.3.1"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\4c271f879071e0b55153117d0a80d4bd\transformed\jetified-profileinstaller-1.3.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.interpolator:interpolator:1.0.0@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\4f7bb432541aa193ae9ef23319f06f6c\transformed\interpolator-1.0.0\jars\classes.jar"
+      resolved="androidx.interpolator:interpolator:1.0.0"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\4f7bb432541aa193ae9ef23319f06f6c\transformed\interpolator-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="androidx.concurrent:concurrent-futures:1.1.0@jar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\modules-2\files-2.1\androidx.concurrent\concurrent-futures\1.1.0\50b7fb98350d5f42a4e49704b03278542293ba48\concurrent-futures-1.1.0.jar"
+      resolved="androidx.concurrent:concurrent-futures:1.1.0"/>
+  <library
+      name="androidx.window.extensions.core:core:1.0.0@aar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\53b96de7e35850e36ff0e59ba15333ba\transformed\jetified-core-1.0.0\jars\classes.jar"
+      resolved="androidx.window.extensions.core:core:1.0.0"
+      folder="C:\Users\SANYA KAPPEN\.gradle\caches\8.12\transforms\53b96de7e35850e36ff0e59ba15333ba\transformed\jetified-core-1.0.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.guava:listenablefuture:1.0@jar"
+      jars="C:\Users\SANYA KAPPEN\.gradle\caches\modules-2\files-2.1\com.google.guava\listenablefuture\1.0\c949a840a6acbc5268d088e47b04177bf90b3cad\listenablefuture-1.0.jar"
+      resolved="com.google.guava:listenablefuture:1.0"/>
+</libraries>
